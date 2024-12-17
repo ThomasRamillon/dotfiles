@@ -1,0 +1,169 @@
+@define-color audio white;
+@define-color lumi white;
+@define-color data white;
+@define-color clock white;
+@define-color space white;
+/* fb00ff */
+@define-color bar_bg rgba(81, 0, 32, 0.156);
+@define-color bar rgba(100,100,100,.5);
+
+* {
+  border:none;
+  /* font-family: 'Fira Code',; */
+  font-size: 13px;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+  /* min-height: 20px; */
+  padding: 0px; 
+  /* min-height: 0px; */
+}
+
+window#waybar {
+  border: 2px solid;
+  border-bottom-left-radius:12px ;
+  border-bottom-right-radius:12px ;
+  border-top: none;
+  border-color: @bar;
+  background: @bar_bg;
+}
+
+
+#workspaces, #pulseaudio, #pulseaudio-slider, #backlight, #backlight-slider, #temperature, #network, #battery, #clock {
+  background-color: rgba(0, 0, 0, 0.069);
+  color: white;
+  /* border-bottom: solid 0px white; */
+  margin-top: 0;
+  margin-bottom: 5px;
+  min-height: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#workspaces{
+  margin-left: 5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-color: @space;
+}
+#workspaces button{
+  border-radius: 10px;
+  padding-right: 5px;
+  padding-left: 5px;
+  color: @space;
+}
+#workspaces button:hover{
+  color: black;
+  background-color: @space;
+}
+
+
+
+#pulseaudio {
+  border-color: @audio;
+  color: @audio;
+}
+#pulseaudio-slider {
+  border-color: @audio;
+}
+#pulseaudio-slider highlight{
+  background-color: @audio;
+}
+
+
+
+#backlight {
+  border-color: @lumi;
+  color: @lumi;
+}
+#backlight-slider {
+  border-color: @lumi;
+}
+#backlight-slider highlight {
+  background-color: @lumi;
+
+  /* background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); */
+}
+
+
+/* SLIDERS */
+#pulseaudio, #backlight {
+  padding-left: 8px;
+  padding-right: 12px;
+  margin-left: 5px;
+  border-bottom-left-radius: 10px;
+}
+#pulseaudio-slider, #backlight-slider {
+  /* margin: 0px; */
+  padding: 0px;
+  padding-right: 8px;
+  border-bottom-right-radius: 10px;
+  margin-right: 5px;
+}
+#pulseaudio-slider highlight,#backlight-slider highlight {
+  margin: 0px;
+  min-height: 8px;
+  border-radius: 100px;
+}
+#pulseaudio-slider slider, #backlight-slider slider {
+  border-radius: 0px;
+  /* box-shadow: none; */
+  opacity: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  min-height: 0px;
+}
+#pulseaudio-slider trough, #backlight-slider trough {
+  padding: 0px;
+  min-height: 1px;
+  min-width: 50px;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.151);
+}
+
+
+
+
+
+
+#battery, #network, #temperature{
+  /* min-width: 20px; */
+  padding-left: 4px;
+  padding-right: 4px;
+  color: @data;
+  border-color: @data;
+  
+}
+#temperature {
+  border-bottom-left-radius: 10px;
+  margin-left: 5px;
+  padding-left: 8px;
+}
+#network{
+  padding-right: 8px;
+  padding-left: 4px;
+  /* background-color: aliceblue; */
+}
+#battery{
+  border-bottom-right-radius: 10px;
+  margin-right: 5px;
+  padding-right: 12px;
+}
+#temperature.critical {
+  background-color: red;
+}
+
+
+#clock{
+  margin-right: 5px;
+  margin-left: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: @clock;
+  border-color: @clock;
+}
+
+
+
+
