@@ -4,3 +4,8 @@ chromium/
 *.save
 *.save.?
 discordptb/
+godot/
+pulse/
+waybar/biblio/
+dconf/
+nnn/
