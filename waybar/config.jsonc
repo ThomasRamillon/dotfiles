@@ -1,17 +1,27 @@
 [{
   "layer": "top",
   "position" : "top",
-  "modules-left": [],
-  "modules-right": [],
   "reload_style_on_change": true,
   // "mode": "overlay", // pour que ça se mette par dessus le reste, "hide" marche aussi; defaut : "dock"
-
-  "modules-center": ["hyprland/window", "hyprland/workspaces", "pulseaudio","pulseaudio/slider", "backlight", "backlight/slider","temperature", "network", "battery", "clock",],
   "margin-right": 8,
   "margin-left": 8,
 
-
-
+  "modules-left": [
+    "hyprland/window",
+  ],
+  "modules-right": [
+  ],
+  "modules-center": [ 
+    "hyprland/workspaces", 
+    "pulseaudio",
+    "pulseaudio/slider", 
+    "backlight", 
+    "backlight/slider",
+    "temperature", 
+    "network", 
+    "battery", 
+    "clock",
+  ],
 
   "pulseaudio/slider": {
     "min": 0,
@@ -52,9 +62,9 @@
   },
 
   "hyprland/window": {
-    "format": "",
-    "icon": true,
-    "separate-outputs": true
+    "format": "{title}{initialTitle}{class}{initialClass}",
+    "icon": false,
+    "separate-outputs": false,
   },
 
 
