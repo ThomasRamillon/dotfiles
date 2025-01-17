@@ -1,16 +1,19 @@
-@define-color audio white;
-@define-color lumi white;
-@define-color data white;
-@define-color clock white;
-@define-color space white;
+@define-color bg0 rgba(0,0,0, 0);
+@define-color fg0 rgba(166,166,166,1);
+
+@define-color audio gray;
+@define-color lumi gray;
+@define-color data gray;
+@define-color clock gray;
+@define-color space gray;
+@define-color slider rgba(255,255,255, .1);
 /* fb00ff */
-@define-color bar_bg rgba(0,0,0, .6);
-@define-color bar rgba(255,255,255,0.2);
+@define-color bar_bg rgba(0,0,0,1);
+@define-color bar rgba(255,255,255, 0.1);
 
 * {
   border:none;
   /* font-family: 'Fira Code',; */
-
 
   font-size: 12px;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
@@ -27,25 +30,24 @@ window#waybar {
 
 
 #workspaces, #pulseaudio, #pulseaudio-slider, #backlight, #backlight-slider, #temperature, #network, #battery, #clock {
-  background-color: rgba(255, 255, 255, 0);
-  color: white;
   /* border-bottom: solid 0px white; */
   margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 4px;
+  margin-left: 4px;
   min-height: 0px;
   padding-bottom: 0px;
+  background-color: @bg0;
+  color: @fg0;
 }
 
-#window{
-  margin-left: 4px;
-}
+
 
 #workspaces{
-  margin-left: 5px;
+  margin-left: 0px;
   border-color: @space;
 }
 #workspaces button{
-  padding-right: 2px;
-  padding-left: 2px;
   color: @space;
 }
 #workspaces button:hover{
@@ -83,38 +85,28 @@ window#waybar {
 
 
 /* SLIDERS */
-#pulseaudio, #backlight {
-  padding-left: 8px;
-  padding-right: 12px;
-  margin-left: 5px;
-  border-bottom-left-radius: 10px;
-}
-#pulseaudio-slider, #backlight-slider {
-  /* margin: 0px; */
-  padding-right: 8px;
-  border-bottom-right-radius: 10px;
-  margin-right: 5px;
-}
+
 #pulseaudio-slider highlight,#backlight-slider highlight {
   margin: 0px;
-  min-height: 8px;
+  min-height: 0px;
+  background-color: transparent;
   border-radius: 100px;
 }
 #pulseaudio-slider slider, #backlight-slider slider {
-  border-radius: 0px;
+  border-radius: 4px;
   /* box-shadow: none; */
-  opacity: 0;
-  background-color: transparent;
+  background-color: @fg0;
   background-image: none;
   box-shadow: none;
-  min-height: 0px;
+  min-height: 8px;
+  min-width: 8px;
 }
 #pulseaudio-slider trough, #backlight-slider trough {
   padding: 0px;
   min-height: 1px;
-  min-width: 50px;
+  min-width: 32px;
   border-radius: 100px;
-  background-color: rgba(255, 255, 255, 0.151);
+  background-color: @slider;
 }
 
 
@@ -122,44 +114,22 @@ window#waybar {
 
 
 
-#battery, #network, #temperature{
+#battery, #network, #temperature, #clock{
   /* min-width: 20px; */
-  padding-left: 4px;
-  padding-right: 4px;
-  color: @data;
-  border-color: @data;
+  margin-right: 4px;
+  margin-left: 4px;
+  color: @fg0;
+  border-color: @bg0;
   
 }
-#temperature {
-  border-bottom-left-radius: 10px;
-  margin-left: 5px;
-  padding-left: 8px;
-}
-#network{
-  padding-right: 8px;
-  padding-left: 4px;
-  /* background-color: aliceblue; */
-}
-#battery{
-  border-bottom-right-radius: 10px;
-  margin-right: 5px;
-  padding-right: 12px;
-}
+
+
 #temperature.critical {
-  background-color: red;
+  color: red;
 }
 
 
-#clock{
-  margin-right: 5px;
-  margin-left: 5px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  color: @clock;
-  border-color: @clock;
-}
+
 
 
 

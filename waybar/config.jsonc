@@ -11,9 +11,6 @@
     "hyprland/window",
   ],
   "modules-right": [
-  ],
-  "modules-center": [ 
-    
     "pulseaudio",
     "pulseaudio/slider", 
     "backlight", 
@@ -21,7 +18,11 @@
     "temperature", 
     "network",  
     "battery", 
+
+  ],
+  "modules-center": [ 
     "clock",
+
   ],
 
   "pulseaudio/slider": {
@@ -42,8 +43,8 @@
     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 55,
     // "format-critical": "{temperatureC}°C {icon}",
-    "format": "{icon}",
-    "tooltip": true,
+    "format": "{temperatureC}°C",
+    "tooltip": false,
     "tooltip-format": "{temperatureC}°C",
     "format-icons": ["","","","",""]
 },
@@ -51,7 +52,7 @@
 
 
   "hyprland/workspaces": {
-    "format": " {windows} ",
+    "format": " {windows} |",
     "tooltip": true,
     "tooltip-format": "{name}",
     "all-outputs": true,
@@ -60,14 +61,14 @@
       "active": "",
       "default": ""
     },
-    "format-window-separator": "  ",
+    "format-window-separator": " ",
 
     "window-rewrite": {
-      "class<Firefox>": "",
-      "class<kitty>": "",
-      "class<Code>": "",
-      "class<discord": " ",
-      "class<obsidian>": "Obs ",
+      "class<Firefox>": "Firefox",
+      "class<kitty>": "Terminal",
+      "class<Code>": "VsCode",
+      "class<discord": "Discord",
+      "class<obsidian>": "Obsidian",
     },
 
   },
@@ -91,8 +92,8 @@
 
   "backlight": {
     "device": "intel_backlight",
-    "format": "{icon}",
-    "format-icons": ["󰃞", "󰃝", "󰃟","󰃠"],
+    "format": "lum",
+    "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
     "tooltip": true,
     "tooltip-format": "{percent}%",
   },
@@ -105,7 +106,7 @@
 
 
   "pulseaudio": {
-    "format": "{icon}",
+    "format": "vol",
     "format-muted": "",
     "tooltip": true,
     "tooltip-format": "{volume}%",
@@ -125,18 +126,18 @@
 
   "network": {      
     "format": "{ifname}",
-    "format-wifi": " ",
+    "format-wifi": "{essid}",
     "format-ethernet": "{ipaddr}/{cidr} ",
-    "format-disconnected": "",
+    "format-disconnected": ":[",
     "tooltip": true,
     "tooltip-format" : "{essid}",
   },
 
   "battery": {
-    "format": "{icon}",
+    "format": "{capacity}%",
     "format-icons": ["", "","","", ""],
-    "format-charging": "{icon}",
-    "tooltip": true,
+    "format-charging": "+{capacity}%",
+    "tooltip": false,
     "tooltip-format": "{capacity}%",
   },
 },
