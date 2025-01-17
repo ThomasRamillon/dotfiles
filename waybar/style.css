@@ -4,16 +4,19 @@
 @define-color clock white;
 @define-color space white;
 /* fb00ff */
-@define-color bar_bg rgba(81, 0, 32, 0.156);
-@define-color bar rgba(100,100,100,.5);
+@define-color bar_bg rgba(0,0,0, .9);
+@define-color bar rgba(255,255,255,0.2);
 
 * {
   border:none;
   /* font-family: 'Fira Code',; */
+
+
   font-size: 13px;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
   /* min-height: 20px; */
   padding: 0px; 
+  margin: 0px;
   /* min-height: 0px; */
 }
 
@@ -28,26 +31,25 @@ window#waybar {
 
 
 #workspaces, #pulseaudio, #pulseaudio-slider, #backlight, #backlight-slider, #temperature, #network, #battery, #clock {
-  background-color: rgba(0, 0, 0, 0.069);
+  background-color: rgba(255, 255, 255, 0);
   color: white;
   /* border-bottom: solid 0px white; */
-  margin-top: 0;
-  margin-bottom: 5px;
+  margin-top: 0px;
   min-height: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-bottom: 2px;
+}
+
+#window{
+  margin-left: 4px;
 }
 
 #workspaces{
   margin-left: 5px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   border-color: @space;
 }
 #workspaces button{
-  border-radius: 10px;
-  padding-right: 5px;
-  padding-left: 5px;
+  padding-right: 2px;
+  padding-left: 2px;
   color: @space;
 }
 #workspaces button:hover{
@@ -93,7 +95,6 @@ window#waybar {
 }
 #pulseaudio-slider, #backlight-slider {
   /* margin: 0px; */
-  padding: 0px;
   padding-right: 8px;
   border-bottom-right-radius: 10px;
   margin-right: 5px;
