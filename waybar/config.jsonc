@@ -3,8 +3,8 @@
   "position" : "top",
   "reload_style_on_change": true,
   // "mode": "overlay", // pour que ça se mette par dessus le reste, "hide" marche aussi; defaut : "dock"
-  "margin-right": 8,
-  "margin-left": 8,
+  "margin-right": 0,
+  "margin-left": 0,
 
   "modules-left": [
     "hyprland/workspaces", 
