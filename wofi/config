@@ -1,0 +1,13 @@
+hide_search=false
+show=drun
+width=30%
+height=30%
+prompt=
+normal_window=false
+hide_scroll=true
+
+insensitive=true
+lines=12
+columns=1
+dynamic_lines=true
+sort_order=alphabetical
