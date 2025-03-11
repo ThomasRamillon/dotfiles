@@ -87,7 +87,9 @@
 
 
   "clock": {
-    "format": "{:%H:%M}"
+    "format": "{:%H:%M}",
+    "tooltip": true,
+    "tooltip-format": "<tt><big>{calendar}</big>{}</tt>",
   },
 
   "backlight": {
@@ -125,8 +127,8 @@
   // },
 
   "network": {      
-    "format": "{ifname}",
-    "format-wifi": "{essid}",
+    "format": "avion {ifname}",
+    "format-wifi": "wifi {essid}",
     "format-ethernet": "{ipaddr}/{cidr} ",
     "format-disconnected": ":[",
     "tooltip": true,
