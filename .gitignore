@@ -9,8 +9,4 @@ pulse/
 waybar/biblio/
 dconf/
 nnn/
-ghostty/
-htop/
-neofetch/
-sqlitebrowser/
-mimeapps.list
+nixos/
