@@ -44,3 +44,7 @@
 
 theme = citruszest
 background = #000
+
+cursor-style = block
+confirm-close-surface = false
+mouse-scroll-multiplier = 0.5

@@ -65,7 +65,7 @@
 
     "window-rewrite": {
       "class<Firefox>": "Firefox",
-      "class<kitty>": "Terminal",
+      "class<.*tty>": ">_",
       "class<Code>": "VsCode",
       "class<discord": "Discord",
       "class<obsidian>": "Obsidian",
