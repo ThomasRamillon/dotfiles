@@ -74,14 +74,15 @@
   },
 
   "hyprland/window": {
+    "expand": true,
     "format": "{title}",
     "icon": false,
     "separate-outputs": false,
     "rewrite": {
       "(.*) — Mozilla Firefox": " $1",
       "(.*) - Discord": "   $1",
-      "Visual Studio Code": "",
-      "(.*)@systematr(.*)": "  $1@systematr$2"
+      "(.*) - Visual Studio Code": "VS $1",
+      "(.*)@systematr(.*)": "> $2"
     },
   },
 
