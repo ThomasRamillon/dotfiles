@@ -1,2 +1,4 @@
 background-color=#000000
-border-radius=20
+margin=4
+border-color= #cc00ff
+border-radius=4

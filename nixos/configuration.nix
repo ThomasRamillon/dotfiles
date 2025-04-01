@@ -171,11 +171,11 @@
 
  
   
-  qt = {
-    enable = true;
-    #platformTheme = "gnome";
-    style = "adwaita-dark";
-  };
+  # qt = {
+  #   enable = true;
+  #   #platformTheme = "gnome";
+  #   style = "adwaita-dark";
+  # };
 
   system.stateVersion = "24.11"; # Did you read the comment?
 

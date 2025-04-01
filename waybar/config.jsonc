@@ -1,8 +1,9 @@
 [{
-  "layer": "top",
-  "position" : "top",
+  "layer": "bottom",
+  "position" : "bottom",
   "reload_style_on_change": true,
-  // "mode": "overlay", // pour que ça se mette par dessus le reste, "hide" marche aussi; defaut : "dock"
+  "mode": "dock", // "overlay" pour que ça se mette par dessus le reste, "hide" marche aussi; defaut : "dock"
+  //"start-hidden": true,
   "margin-right": 0,
   "margin-left": 0,
 
@@ -69,13 +70,14 @@
       "class<Code>": "VsCode",
       "class<discord": "Discord",
       "class<obsidian>": "Obsidian",
+      "class<.*idea.*>": "IdeaJ"
     },
 
   },
 
   "hyprland/window": {
     "expand": true,
-    "format": "{title}",
+    "format": "{title} #{class}#",
     "icon": false,
     "separate-outputs": false,
     "rewrite": {
