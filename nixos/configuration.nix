@@ -6,12 +6,15 @@
 
 {
 
+  # FLAKES
   nix = {
     # package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-  };
+  }; 
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
+  
 
   imports =
     [ # Include the results of the hardware scan.
@@ -80,15 +83,19 @@
     brightnessctl
     ntfs3g # mount windows
     neofetch # distro logo
-    lshw # hardware
-    xorg.xev
+    lshw # info hardware
+    xorg.xev 
+    pulseaudio #provides pactl
+    playerctl
 
     ## CL ##
-    unzip    
+    unzip
+    nix-index
 
     ## TUI 
     htop # task manager
     nnn # file explorer
+    clipse 
 
     ## GUI ##
     ghostty
@@ -96,6 +103,8 @@
     discord-ptb
     obsidian 
     #godot-4
+    spotify
+    kitty
 
     ## HYPR ## 
     hyprpaper
@@ -103,7 +112,11 @@
     mako
     waybar 
     hyprpicker
+    hyprshot 
+    hypridle
+    hyprpolkitagent
 
+ 
     ## TNCY ##
     git
     gitflow 
@@ -113,11 +126,20 @@
     jdk21 #java
     jetbrains.idea-community #ide java
     bc #calculator
-    ncurses # rendu dans terminal
-  
+    libgcc # g++ 
+    wireshark
+    wget # telecharge un fichier à un adresse donnée
+   
     ## LIB ##
- 
+    zlib
+    zlib-ng
+    gcc
   ];
+  
+  # Son
+  services.pipewire.pulse.enable = true;
+  #hardware.pulseaudio.enable = true;
+  
 
   programs = {
     hyprland.enable = true;
@@ -130,25 +152,26 @@
   #   nerdfonts
     
   # ];
-
-
-
   
   programs.bash.shellAliases = {
     rebuild = "sudo nixos-rebuild --flake /etc/nixos";
     bn = "shutdown 0";
+    re = "reboot";
     poubelle = "sudo nix-collect-garbage -d";
     flocon = "sudo nix flake";
     nixconf = "sudo nano /etc/nixos/configuration.nix";
     nixhw = "sudo nano /etc/nixos/harware-configuration.nix";
     wount = "sudo mount /dev/nvme0n1p3 ~/win";
     uwount = "sudo umount ~/win";
+    nixsh = "nix-shell";
   };  
- 
+
   
-
-
-
+  services.jack = {
+    jackd.enable = true;
+    alsa.enable = true;
+  };
+  
   # AutoStart
   services.getty.autologinUser = "thomax";
   services.getty.autologinOnce = true; 
@@ -169,13 +192,19 @@
 #    };
 #  };
 
- 
+  # donne accès à certaines lib essentielles (path dédié) 
+  environment = {
+    sessionVariables = {
+      LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.zlib}/lib";
+    };
+  };
+
   
-  # qt = {
-  #   enable = true;
-  #   #platformTheme = "gnome";
-  #   style = "adwaita-dark";
-  # };
+  qt = {
+    enable = true;
+    #platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
 
   system.stateVersion = "24.11"; # Did you read the comment?
 

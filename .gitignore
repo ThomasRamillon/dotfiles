@@ -6,6 +6,7 @@ chromium/
 discordptb/
 godot/
 pulse/
+spotify/
 waybar/biblio/
 dconf/
 nnn/
@@ -15,3 +16,4 @@ JetBrains/
 kitty/
 nixos/hardware-configuration.nix
 mimeapps.list
+wireshark/
