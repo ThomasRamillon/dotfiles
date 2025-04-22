@@ -1,6 +1,7 @@
 *.save
 *.save.?
 
+btop/btop.log
 chromium/
 clipse/
 Code/
@@ -13,6 +14,7 @@ JetBrains/
 nnn/
 obsidian/
 pulse/
+ranger/
 spotify/
 wireshark/
 

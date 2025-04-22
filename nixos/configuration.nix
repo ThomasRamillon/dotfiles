@@ -83,6 +83,7 @@
     brightnessctl
     ntfs3g # mount windows
     neofetch # distro logo
+    hollywood
     lshw # info hardware
     xorg.xev 
     pulseaudio #provides pactl
@@ -90,11 +91,13 @@
 
     ## CL ##
     unzip
+    zip
     nix-index
 
-    ## TUI 
-    htop # task manager
-    nnn # file explorer
+    ## TUI ##
+    btop # task manager
+    # nnn # file explorer
+    ranger 
     clipse 
 
     ## GUI ##
@@ -115,7 +118,6 @@
     hyprshot 
     hypridle
     hyprpolkitagent
-
  
     ## TNCY ##
     git
