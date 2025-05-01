@@ -21,24 +21,16 @@
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "systematr"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "systematr"; # nom de la machine systmateur mieux non?
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+
   time.timeZone = "Europe/Paris";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "fr_FR.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -53,16 +45,13 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "fr";
     variant = "";
   };
 
-  # Configure console keymap
   console.keyMap = "fr";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.thomax = {
     isNormalUser = true;
     description = "toaaaa";
@@ -70,12 +59,8 @@
     packages = [];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages =  with pkgs; [
     inputs.zen-browser.packages."${system}".default
 
@@ -109,6 +94,7 @@
     spotify
     kitty
 
+
     ## HYPR ## 
     hyprpaper
     hyprlock
@@ -118,6 +104,7 @@
     hyprshot 
     hypridle
     hyprpolkitagent
+    wofi
  
     ## TNCY ##
     git
@@ -133,16 +120,23 @@
     wget # telecharge un fichier à un adresse donnée
    
     ## LIB ##
-    zlib
-    zlib-ng
+    # zlib
+    # zlib-ng
     gcc
   ];
   
   # Son
+  # services.pipewire = {
+  #   enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  #   pulse.enable = true;
+  #   jack.enable = true;
+  # };
   services.pipewire.pulse.enable = true;
   #hardware.pulseaudio.enable = true;
   
-
+  
   programs = {
     hyprland.enable = true;
     hyprlock.enable = true;
@@ -156,23 +150,21 @@
   # ];
   
   programs.bash.shellAliases = {
-    rebuild = "sudo nixos-rebuild --flake /etc/nixos";
     bn = "shutdown 0";
     re = "reboot";
-    poubelle = "sudo nix-collect-garbage -d";
-    flocon = "sudo nix flake";
-    nixconf = "sudo nano /etc/nixos/configuration.nix";
-    nixhw = "sudo nano /etc/nixos/harware-configuration.nix";
+    dodo = "hyprlock $ systemctl suspend";
     wount = "sudo mount /dev/nvme0n1p3 ~/win";
     uwount = "sudo umount ~/win";
-    nixsh = "nix-shell";
+    # nix
+    rebuild = "sudo nixos-rebuild --flake /etc/nixos";
+    nxrb = "sudo nixos-rebuild --flake /etc/nixos";
+    poubelle = "sudo nix-collect-garbage -d";
+    nxfl = "sudo nix flake";
+    nxsh = "nix-shell";
+    nxcf = "sudo nano /etc/nixos/configuration.nix";
+    nxhw = "sudo nano /etc/nixos/harware-configuration.nix";
   };  
 
-  
-  services.jack = {
-    jackd.enable = true;
-    alsa.enable = true;
-  };
   
   # AutoStart
   services.getty.autologinUser = "thomax";
@@ -186,6 +178,8 @@
     '';
   };
 
+
+
 #  gtk = {
 #    enable = true;
 #    theme = { 
@@ -195,11 +189,11 @@
 #  };
 
   # donne accès à certaines lib essentielles (path dédié) 
-  environment = {
-    sessionVariables = {
-      LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.zlib}/lib";
-    };
-  };
+  # environment = {
+  #   sessionVariables = {
+  #     LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.zlib}/lib";
+  #   };
+  # };
 
   
   qt = {

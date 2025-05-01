@@ -1,6 +1,6 @@
 # /etc/nixos/flake.nix
 {
-  description = "flocon i";
+  description = "flocon";
 
   inputs = {
     nixpkgs = {
