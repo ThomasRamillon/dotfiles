@@ -3,7 +3,7 @@
     color: #ffffff;
     padding: 0px;
     margin: 0px;
-    text-align: center;
+    /* text-align: center; */
   }
   
   #window {
@@ -37,7 +37,7 @@
   
   #entry {
     background: transparent;
-    text-align: center;
+    /* text-align: center; */
   }
   
   #entry:selected {

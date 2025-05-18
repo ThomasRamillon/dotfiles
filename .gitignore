@@ -10,13 +10,20 @@ discordptb/
 Electron/
 godot/
 gtk-3.0/
+gtk-4.0/
 JetBrains/
+kde.org/
 nnn/
 obsidian/
+procps/
 pulse/
 ranger/
+session/
 spotify/
+VisUAL2/
 wireshark/
 
 mimeapps.list
 QtProject.conf
+dolphinrc
+dnoterc
