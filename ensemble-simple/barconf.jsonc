@@ -1,0 +1,155 @@
+[{
+    "layer": "bottom",
+    "position" : "bottom",
+    "reload_style_on_change": true,
+    "mode": "dock", // "overlay" pour que ça se mette par dessus le reste, "hide" marche aussi; defaut : "dock"
+    //"start-hidden": true,
+    "margin-right": 0,
+    "margin-left": 0,
+  
+    "modules-left": [
+      "hyprland/workspaces", 
+      "hyprland/window",
+    ],
+    "modules-right": [
+      "pulseaudio",
+      "pulseaudio/slider", 
+      "backlight", 
+      "backlight/slider",
+      "temperature", 
+      "network",  
+      "battery", 
+  
+    ],
+    "modules-center": [ 
+      "clock",
+  
+    ],
+  
+    "pulseaudio/slider": {
+      "min": 0,
+      "max": 100,
+      "orientation": "horizontal",
+    },
+  
+    "custom/arch": {
+      "format": "  ",
+      "tooltip": false,
+      "on-click": "sh $HOME/.config/rofi/bin/powermenu"
+    },
+  
+  
+    "temperature": {
+      // "thermal-zone": 2,
+      // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      "critical-threshold": 60,
+      // "format-critical": "{temperatureC}°C {icon}",
+      "format": "{temperatureC}°C",
+      "tooltip": false,
+      "tooltip-format": "{temperatureC}°C",
+      "format-icons": ["","","","",""]
+  },
+  
+  
+  
+    "hyprland/workspaces": {
+      "format": " {windows} |",
+      "tooltip": true,
+      "tooltip-format": "{name}",
+      "all-outputs": true,
+      "active-only": false,
+      "format-icons": {
+        "active": "",
+        "default": ""
+      },
+      "format-window-separator": " ",
+  
+      "window-rewrite": {
+        "class<Firefox>": "Firefox",
+        "class<.*tty>": ">_",
+        "class<Code>": "VsCode",
+        "class<discord": "Discord",
+        "class<obsidian>": "Obsidian",
+        "class<.*idea.*>": "IdeaJ"
+      },
+  
+    },
+  
+    "hyprland/window": {
+      "expand": true,
+      "format": "{title} #{class}#",
+      "icon": false,
+      "separate-outputs": false,
+      "rewrite": {
+        "(.*) — Mozilla Firefox": " $1",
+        "(.*) - Discord": "   $1",
+        "(.*) - Visual Studio Code": "VS $1",
+        "(.*)@systematr(.*)": "> $2"
+      },
+    },
+  
+  
+    "clock": {
+      "format": "{:%H:%M}",
+      "tooltip": true,
+      "tooltip-format": "<tt><big>{calendar}</big>{}</tt>",
+    },
+  
+    "backlight": {
+      "device": "intel_backlight",
+      "format": "lum",
+      "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
+      "tooltip": true,
+      "tooltip-format": "{percent}%",
+    },
+    "backlight/slider": {
+      "min": 1,
+      "max": 100,
+      "orientation": "horizontal",
+      "device": "intel_backlight",
+    },
+  
+  
+    "pulseaudio": {
+      "format": "vol",
+      "format-muted": "",
+      "tooltip": true,
+      "tooltip-format": "{volume}%",
+      "format-icons": {
+        "headphone": "",
+        "default": ["", "", "", "",""]
+      },
+      "scroll-step": 1,
+    },
+    // "bluetooth": {
+    //   "format": "<span color='#b4befe'></span> {status}",
+    //   "format-disabled": "", // an empty format will hide the module
+    //   "format-connected": "<span color='#b4befe'></span> {num_connections}",
+    //   "tooltip-format": "{device_enumerate}",
+    //   "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
+    // },
+  
+    "network": {      
+      "format": "avion{ifname}",
+      "format-wifi": "wifi {essid}",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "format-disconnected": ":[",
+      "tooltip": true,
+      "tooltip-format" : "{essid}",
+    },
+  
+    "battery": {
+      "format": "{capacity}%",
+      "format-icons": ["", "","","", ""],
+      "format-charging": "+{capacity}%",
+      "tooltip": false,
+      "tooltip-format": "{capacity}%",
+    },
+  },
+  
+  {
+    "layer": "top",
+    "position": "left",
+  
+  }
+  ]

@@ -1,0 +1,138 @@
+@define-color bg0 rgba(0,0,0, 0);
+@define-color fg0 rgba(166,166,166,1);
+
+@define-color audio gray;
+@define-color lumi gray;
+@define-color data gray;
+@define-color clock gray;
+@define-color space gray;
+@define-color slider rgba(255,255,255, .1);
+/* fb00ff */
+@define-color bar_bg rgba(0,0,0,1);
+@define-color bar rgba(255,255,255, 1);
+
+* {
+  border:none;
+  /* font-family: 'Fira Code',; */
+
+  font-size: 15px;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+  /* min-height: 20px; */
+  padding: 0px; 
+  margin: 0px;
+  min-height: 27px;
+}
+
+window#waybar {
+  /* border-bottom: 0px solid @bar; */
+  margin-top: 4px;
+  background: @bar_bg;
+  
+}
+
+
+#workspaces, #pulseaudio, #pulseaudio-slider, #backlight, #backlight-slider, #temperature, #network, #battery, #clock {
+  /* border-bottom: solid 0px white; */
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 6px;
+  margin-left: 6px;
+  min-height: 0px;
+  padding-bottom: 0px;
+  background-color: @bg0;
+  color: @fg0;
+}
+
+
+
+#workspaces{
+  margin-left: 0px;
+  border-color: @space;
+}
+#workspaces button{
+  color: @space;
+}
+#workspaces button:hover{
+  color: black;
+  background-color: @space;
+}
+
+
+
+#pulseaudio {
+  border-color: @audio;
+  color: @audio;
+}
+#pulseaudio-slider {
+  border-color: @audio;
+}
+#pulseaudio-slider highlight{
+  background-color: @audio;
+}
+
+
+
+#backlight {
+  border-color: @lumi;
+  color: @lumi;
+}
+#backlight-slider {
+  border-color: @lumi;
+}
+#backlight-slider highlight {
+  background-color: @lumi;
+
+  /* background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); */
+}
+
+
+/* SLIDERS */
+
+#pulseaudio-slider highlight,#backlight-slider highlight {
+  margin: 0px;
+  min-height: 0px;
+  background-color: transparent;
+  border-radius: 100px;
+}
+#pulseaudio-slider slider, #backlight-slider slider {
+  border-radius: 0px;
+  /* box-shadow: none; */
+  background-color: @fg0;
+  background-image: none;
+  box-shadow: none;
+  min-height: 8px;
+  min-width: 8px;
+}
+#pulseaudio-slider trough, #backlight-slider trough {
+  padding: 0px;
+  min-height: 1px;
+  min-width: 32px;
+  border-radius: 3px;
+  background-color: @slider;
+}
+
+
+
+
+
+
+#battery, #network, #temperature, #clock{
+  /* min-width: 20px; */
+  margin-right: 4px;
+  margin-left: 4px;
+  color: @fg0;
+  border-color: @bg0;
+  
+}
+
+
+#temperature.critical {
+  color: rgb(255, 115, 115);
+}
+
+
+
+
+
+
+
