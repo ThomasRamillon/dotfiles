@@ -1,3 +1,5 @@
+@define-color bg0 rgba(0,0,0, .7);
+@define-color fg0 rgba(255,255,255,1);
 * {
   border:none;
 
@@ -8,36 +10,42 @@
 
   padding: 0px; 
   margin: 0px;
-}
-
-window#waybar {
-  background: transparent;
-}
-
-window#waybar > box {
-  margin: 0px;
+  min-height: 0px;
+  background-color: transparent;
 }
 
 
-@define-color bg0 rgba(0,0,0, .7);
-@define-color fg0 rgba(255,255,255,1);
-#workspaces, #window, #pulseaudio, #pulseaudio-slider, #backlight, #backlight-slider, #temperature, #network, #battery, #clock {
-  /* border-bottom: solid 0px white; */
-  margin-top: 2px;
-  margin-bottom: 0px;
+
+
+
+#custom-test,
+#cpu,
+#workspaces, 
+#window, 
+#pulseaudio, 
+#pulseaudio-slider, 
+#backlight, 
+#backlight-slider, 
+#temperature, 
+#network, 
+#battery, 
+#clock {
+  /* margin-top: 20px; */
   margin-right: 8px;
+
   padding-left: 6px;
   padding-right: 6px;
+
   border-radius: 4px;
   background-color: @bg0;
-  color: @fg0;-
+  color: @fg0;
 }
 
 
+/*MARK: LEFT
+*/
 #workspaces{
   background-color: transparent;
-  padding: 0px;
-  margin: 0px;
 }
 #workspaces button{
   color: #F28CA3;
@@ -52,10 +60,17 @@ window#waybar > box {
   background-color: #f28ca3;
 }
 
-#window {
-  background-color: transparent;
-  color: #EBDEE4;
+#workspaces button.focused{
+  background-color: aqua;
 }
+
+#window {
+  color: springgreen;
+}
+
+
+
+/*MARK: SLIDERS*/
 
 @define-color lumiere #FCC4B3;
 #backlight {
@@ -133,32 +148,37 @@ window#waybar > box {
 
 
 
-
-
 #clock {
   color: #F3D9A2;
+  margin-right: 0px;
 }
 
 #network {
   color: #F387C2;
 }
 
+@define-color bat #F17D93;
 #battery {
-  color: #F17D93;
-  margin-right: 0px;
+  color: @bat;
 }
+#battery.plugged
+#battery.charging {
+  color: black;
+  background-color: @bat;
+}
+
 
 #temperature {
   color: #5CBBC4;
 }
-
-
 #temperature.critical {
   background-color: #E55B75;
   color: black;
 }
 
-
+#cpu {
+  color: darkorange;
+}
 
 
 

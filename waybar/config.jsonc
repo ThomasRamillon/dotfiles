@@ -1,15 +1,18 @@
 [{
   "layer": "bottom",
-  "position" : "bottom",
+  "position" : "top",
   "reload_style_on_change": true,
   "mode": "dock", // "overlay" pour que ça se mette par dessus le reste, "hide" marche aussi; defaut : "dock"
-  //"start-hidden": true,
-  "margin-right": 0,
-  "margin-left": 0,
+  // "start-hidden": true,
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-right": 8,
+  "margin-left": 8,
 
   "modules-left": [
     "hyprland/workspaces", 
     "hyprland/window",
+    "custom/test"
   ],
   "modules-right": [
     "pulseaudio",
@@ -18,31 +21,35 @@
     "backlight/slider",
     "temperature", 
     "network",  
+    "cpu",
     "battery", 
+    "clock"
 
   ],
-  "modules-center": [ 
-    "clock",
+  // "modules-center": [ 
 
-  ],
+  // ],
 
-  "pulseaudio/slider": {
-    "min": 0,
-    "max": 100,
-    "orientation": "horizontal",
-  },
 
-  "custom/arch": {
-    "format": "  ",
-    "tooltip": false,
-    "on-click": "sh $HOME/.config/rofi/bin/powermenu"
+
+  //MARK: MODULES
+
+
+
+  
+
+  "custom/test": {
+    "format": "^",
+    "tooltip": true,
+    // "tooltip-format": "nique ta mère",
+    "on-click": "pkill -SIGUSR1 'waybar'"
   },
 
 
   "temperature": {
     // "thermal-zone": 2,
     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    "critical-threshold": 60,
+    "critical-threshold": 50,
     // "format-critical": "{temperatureC}°C {icon}",
     "format": "{temperatureC}°C",
     "tooltip": false,
@@ -53,37 +60,41 @@
 
 
   "hyprland/workspaces": {
-    "format": " {windows} |",
+    "format": "{windows}",
     "tooltip": true,
     "tooltip-format": "{name}",
     "all-outputs": true,
     "active-only": false,
+
     "format-icons": {
       "active": "",
       "default": ""
     },
     "format-window-separator": " ",
-
     "window-rewrite": {
       "class<Firefox>": "Firefox",
       "class<.*tty>": ">_",
       "class<Code>": "VsCode",
       "class<discord": "Discord",
       "class<obsidian>": "Obsidian",
-      "class<.*idea.*>": "IdeaJ"
+      "class<.*idea.*>": "IdeaJ",
+      "class<zen>": "Zen",
     },
 
   },
 
   "hyprland/window": {
-    "expand": true,
-    "format": "{title} #{class}#",
+    "expand": false,
+    "format": "{title}",
     "icon": false,
     "separate-outputs": false,
     "rewrite": {
-      "(.*) — Mozilla Firefox": " $1",
-      "(.*) - Discord": "   $1",
-      "(.*) - Visual Studio Code": "VS $1",
+      " | ": "bonjour",
+      "(.*) — Mozilla Firefox | (.*)": "$2 | $1",
+      "(.*) - Zen Browser | (.*)": "$2 $1",
+      "(.*) - Discord | (.*)": "$2 | $1",
+      "(.*) - Visual Studio Code | (.*)": "VS $1",
+      "(.*) | com.mitchellh.ghostty": "> $1",
       "(.*)@systematr(.*)": "> $2"
     },
   },
@@ -100,13 +111,13 @@
     "format": "lum",
     "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
     "tooltip": true,
-    "tooltip-format": "{percent}%",
+    "tooltip-format": "{percent}%"
   },
   "backlight/slider": {
     "min": 1,
     "max": 100,
     "orientation": "horizontal",
-    "device": "intel_backlight",
+    "device": "intel_backlight"
   },
 
 
@@ -119,15 +130,22 @@
       "headphone": "",
       "default": ["", "", "", "",""]
     },
-    "scroll-step": 1,
+    "scroll-step": 1
   },
-  // "bluetooth": {
-  //   "format": "<span color='#b4befe'></span> {status}",
-  //   "format-disabled": "", // an empty format will hide the module
-  //   "format-connected": "<span color='#b4befe'></span> {num_connections}",
-  //   "tooltip-format": "{device_enumerate}",
-  //   "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
-  // },
+
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+  },
+
+  "bluetooth": {
+    "format": "<span color='#b4befe'></span> {status}",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": "<span color='#b4befe'></span> {num_connections}",
+    "tooltip-format": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
+  },
 
   "network": {      
     "format": "avion{ifname}",
@@ -136,6 +154,7 @@
     "format-disconnected": ":[",
     "tooltip": true,
     "tooltip-format" : "{essid}",
+    "on-click": "ghostty -e nmtui"
   },
 
   "battery": {
@@ -145,11 +164,11 @@
     "tooltip": false,
     "tooltip-format": "{capacity}%",
   },
-},
-
-{
-  "layer": "top",
-  "position": "left",
-
 }
+
+// {
+//   "layer": "top",
+//   "position": "left",
+
+// }
 ]
