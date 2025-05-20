@@ -18,7 +18,13 @@
 
 
 
-#custom-test,
+#custom-test {
+  background-color: black;
+  color:#00A6DE;
+}
+
+
+tooltip,
 #cpu,
 #workspaces, 
 #window, 
@@ -42,64 +48,69 @@
 }
 
 
-/*MARK: LEFT
+/*MARK: 
+LEFT
 */
+
+
+
+
 #workspaces{
   background-color: transparent;
+  margin-right: 0px;
 }
 #workspaces button{
-  color: #F28CA3;
+  
   margin-right: 8px;
   border-radius: 4px;
   padding-left: 6px;
   padding-right: 6px;
-  background-color: @bg0;
+  /* background-color: @bg0; */
+  color: #F17D91;
 }
 #workspaces button.active{
-  color: black;
-  background-color: #f28ca3;
+  background-color: #F17D91;
+  color: @bg0;
+  
 }
 
-#workspaces button.focused{
-  background-color: aqua;
-}
+
+
 
 #window {
-  color: springgreen;
+  color: #4acc9e;
+  background-color: transparent;
 }
 
 
 
 /*MARK: SLIDERS*/
 
-@define-color lumiere #FCC4B3;
 #backlight {
-  margin-right: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
   color: @lumiere;
 }
 #backlight-slider {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  padding-left: 6px;
-  padding-right: 12px ;
-  color: @lumiere;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding-left: 0px;
+  padding-right: 0px ;
+  margin-right: 0px;
 }
 #backlight-slider highlight {
-  margin: 0px;
-  min-height: 0px;
-  background-color: transparent;
-  border-radius: 8px;
+  border-radius: 4px;
+  min-width: 8px;
+  background-color: #D4FFF1;
 }
 
 #backlight-slider slider {
-  border-radius: 12px;
-  background-image: none;
-  box-shadow: none;
-  min-height: 12px;
-  min-width: 12px;
-  background-color: @lumiere;
+  border-radius: 0px;
+  /* background-image: none; */
+  /* box-shadow: none; */
+  min-height: 15px;
+  min-width: 15px;
+  background-color: transparent;
 }
 #backlight-slider trough {
   min-width: 36px;
@@ -109,39 +120,31 @@
 
 
 #pulseaudio {
-  color: #00A6DE;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  color: #DA9FE3;
+}
+#pulseaudio-slider {
   margin-right: 0px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
+  padding-left: 0px;
+  padding-right: 0px ;
 }
-#pulseaudio-slider {
-  color: #00A6DE;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  padding-left: 4px;
-  padding-right: 12px ;
-  background-color: @bg0;
-}
-
 #pulseaudio-slider highlight {
-  margin: 0px;
-  min-height: 0px;
-  background-color: transparent;
-  border-radius: 8px;
+  border-radius: 4px;
+  min-width: 8px;
+  background-color: #DA9FE3;
 }
-
 #pulseaudio-slider slider {
-  border-radius: 8px;
-  /* box-shadow: none; */
-  background-color: #00A6DE;
-  background-image: none;
-  box-shadow: none;
-  min-height: 12px;
-  min-width: 12px;
+  border-radius: 0px;
+  background-color: transparent;
+  min-height: 15px;
+  min-width: 15px;
 }
 #pulseaudio-slider trough {
   min-width: 36px;
-  /* border-radius: 4px; */
+  border-radius: 4px;
   background-color: transparent;
 }
 
@@ -149,7 +152,7 @@
 
 
 #clock {
-  color: #F3D9A2;
+  color: #EBE5E9;
   margin-right: 0px;
 }
 
@@ -157,19 +160,18 @@
   color: #F387C2;
 }
 
-@define-color bat #F17D93;
 #battery {
-  color: @bat;
+  color: #F3DAA6;
 }
-#battery.plugged
+#battery.plugged,
 #battery.charging {
   color: black;
-  background-color: @bat;
+  background-color: #F3DAA6;
 }
 
 
 #temperature {
-  color: #5CBBC4;
+  color: #FCC4B3;
 }
 #temperature.critical {
   background-color: #E55B75;
@@ -177,7 +179,7 @@
 }
 
 #cpu {
-  color: darkorange;
+  color: #00A6DE ;
 }
 
 

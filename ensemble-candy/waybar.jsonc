@@ -11,40 +11,40 @@
   
     "modules-left": [
       "hyprland/workspaces", 
-      "hyprland/window",
-      "custom/test"
+      "hyprland/window"
     ],
     "modules-right": [
-      "pulseaudio",
       "pulseaudio/slider", 
-      "backlight", 
+      "pulseaudio",
       "backlight/slider",
-      "temperature", 
-      "network",  
+      "backlight", 
+      "network",
       "cpu",
+      "temperature", 
       "battery", 
       "clock"
   
     ],
-    // "modules-center": [ 
-  
-    // ],
+
+    // "modules-center": ["custom/test"],
   
   
   
     //MARK: MODULES
-  
-  
-  
-    
-  
-    "custom/test": {
-      "format": "^",
+
+    "clock": {
+      "format": "{:%H:%M}",
       "tooltip": true,
-      // "tooltip-format": "nique ta mère",
-      "on-click": "pkill -SIGUSR1 'waybar'"
+      "tooltip-format": "<tt><big>{calendar}</big>{}</tt>"
     },
   
+    "battery": {
+      "format": "{capacity}%",
+      "format-icons": ["", "","","", ""],
+      "format-charging": "+{capacity}%",
+      "tooltip": false,
+      "tooltip-format": "{capacity}%"
+    },
   
     "temperature": {
       // "thermal-zone": 2,
@@ -55,8 +55,13 @@
       "tooltip": false,
       "tooltip-format": "{temperatureC}°C",
       "format-icons": ["","","","",""]
-  },
-  
+    },
+    
+    "cpu": {
+      "format": "{usage}%",
+      "tooltip": true,
+      "tooltip-format": "CPU"
+    },
   
   
     "hyprland/workspaces": {
@@ -78,8 +83,8 @@
         "class<discord": "Discord",
         "class<obsidian>": "Obsidian",
         "class<.*idea.*>": "IdeaJ",
-        "class<zen>": "Zen",
-      },
+        "class<zen>": "Zen"
+      }
   
     },
   
@@ -96,15 +101,11 @@
         "(.*) - Visual Studio Code | (.*)": "VS $1",
         "(.*) | com.mitchellh.ghostty": "> $1",
         "(.*)@systematr(.*)": "> $2"
-      },
+      }
     },
   
   
-    "clock": {
-      "format": "{:%H:%M}",
-      "tooltip": true,
-      "tooltip-format": "<tt><big>{calendar}</big>{}</tt>",
-    },
+    
   
     "backlight": {
       "device": "intel_backlight",
@@ -120,7 +121,7 @@
       "device": "intel_backlight"
     },
   
-  
+    
     "pulseaudio": {
       "format": "vol",
       "format-muted": "",
@@ -132,12 +133,13 @@
       },
       "scroll-step": 1
     },
-  
+
     "pulseaudio/slider": {
       "min": 0,
       "max": 100,
       "orientation": "horizontal"
     },
+    
   
     "bluetooth": {
       "format": "<span color='#b4befe'></span> {status}",
@@ -157,18 +159,24 @@
       "on-click": "ghostty -e nmtui"
     },
   
-    "battery": {
-      "format": "{capacity}%",
-      "format-icons": ["", "","","", ""],
-      "format-charging": "+{capacity}%",
-      "tooltip": false,
-      "tooltip-format": "{capacity}%",
+    
+
+    //MARK: CUSTOM 
+
+
+
+    "group/audio": {
+      "modules": [
+        "pulseaudio",
+        "pulseaudio/slider"
+      ]
     },
-  }
-  
-  // {
-  //   "layer": "top",
-  //   "position": "left",
-  
-  // }
-  ]
+
+
+    "custom/test": {
+      "format": "test",
+      "tooltip": true,
+      "tooltip-format": "tooltip",
+      "on-click": "pkill -SIGUSR1 'waybar'"
+    }
+}]
