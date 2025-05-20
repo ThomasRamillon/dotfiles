@@ -21,10 +21,10 @@
       "temperature", 
       "network",  
       "battery", 
+      "clock",
   
     ],
     "modules-center": [ 
-      "clock",
   
     ],
   
