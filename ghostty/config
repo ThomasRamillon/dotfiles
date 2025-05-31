@@ -48,3 +48,14 @@ background = #000
 cursor-style = block
 confirm-close-surface = false
 mouse-scroll-multiplier = 0.5
+
+
+keybind = ctrl+up=new_split:up
+keybind = ctrl+down=new_split:right
+keybind = ctrl+right=new_split:right
+keybind = ctrl+left=new_split:left
+# ctrl d quit the terminal and thus close the split
+
+keybind = performable:ctrl+c=copy_to_clipboard
+keybind = ctrl+v=paste_from_clipboard
+
