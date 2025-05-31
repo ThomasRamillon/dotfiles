@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{config, pkgs, inputs,  ...}:
+{config, pkgs, inputs, lib,  ...}:
 
 {
 
@@ -84,6 +84,7 @@
     # nnn # file explorer
     ranger 
     clipse 
+    
 
     ## GUI ##
     ghostty
@@ -92,9 +93,15 @@
     obsidian 
     #godot-4
     spotify
-    kitty
+    kitty # ghostty tweaks with ncurse
     libsForQt5.dolphin
-    kdePackages.qtsvg
+    # kdePackages.qtsvg # idk 
+
+    twitch-tui # chat in terminal
+    streamlink # put livestream into videoplayer
+    celluloid # video player
+    mpv # video player but simpler
+
 
 
     ## HYPR ## 
@@ -109,35 +116,36 @@
     wofi
  
     ## TNCY ##
-    gcc
+    # gcc
     git
     gitflow 
     python3Full
-    clang 
-    gnumake
+    # clang 
+    # gnumake
     jdk21 #java
     jetbrains.idea-community #ide java
-    bc #calculator
-    libgcc # g++ 
+    bc # polish calculator
+    # libgcc # g++ 
     wireshark
     wget # telecharge un fichier à un adresse donnée
    
     ## TEST ##
-    #  dterm 
+    # dterm 
     dnote 
     dstask
 
   ];
   
   # Son
-  # services.pipewire = {
-  #   enable = true;
-  #   alsa.enable = true;
-  #   alsa.support32Bit = true;
-  #   pulse.enable = true;
-  #   jack.enable = true;
-  # };
-  services.pipewire.pulse.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
+  
+  # services.pipewire.pulse.enable = true;
   #hardware.pulseaudio.enable = true;
   
   
@@ -191,10 +199,15 @@
   ];
 
 
-  # fonts.packages = with pkgs; [
-  #   nerdfonts
-    
-  # ];
+  fonts.packages = with pkgs; [
+    font-awesome
+    nerd-fonts.symbols-only
+    # nerd-fonts
+    # nerd-fonts._3270
+    nerd-fonts.terminess-ttf
+    # nerd-fonts.symbols-only
+  
+  ];
   
   programs.bash.shellAliases = {
     bn = "shutdown 0";

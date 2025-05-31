@@ -2,7 +2,7 @@
     "layer": "bottom",
     "position" : "top",
     "reload_style_on_change": true,
-    "mode": "dock", // "overlay" pour que ça se mette par dessus le reste, "hide" marche aussi; defaut : "dock"
+    "mode": "hide", // "overlay" pour que ça se mette par dessus le reste, "hide" marche aussi; defaut : "dock" // la diff c'est que avec overlay on peut pas cliquer dessus
     // "start-hidden": true,
     "margin-top": 0,
     "margin-bottom": 0,
@@ -22,7 +22,8 @@
       "cpu",
       "temperature", 
       "battery", 
-      "clock"
+      "clock",
+      "custom/sleep"
   
     ],
 
@@ -38,10 +39,10 @@
       "tooltip-format": "<tt><big>{calendar}</big>{}</tt>"
     },
   
-    "battery": {
+    "battery": { //󰁹
       "format": "{capacity}%",
       "format-icons": ["", "","","", ""],
-      "format-charging": "+{capacity}%",
+      "format-charging": "{capacity}%",//󰂄
       "tooltip": false,
       "tooltip-format": "{capacity}%"
     },
@@ -58,9 +59,11 @@
     },
     
     "cpu": {
-      "format": "{usage}%",
+      //
+      "format": " {usage:0>2}%", 
       "tooltip": true,
       "tooltip-format": "CPU"
+      // "min-length": 3,
     },
   
   
@@ -83,7 +86,8 @@
         "class<discord": "Discord",
         "class<obsidian>": "Obsidian",
         "class<.*idea.*>": "IdeaJ",
-        "class<zen>": "Zen"
+        "class<zen>": "Zen",
+        "class<mpv>": "Twitch"
       }
   
     },
@@ -100,16 +104,21 @@
         "(.*) - Discord | (.*)": "$2 | $1",
         "(.*) - Visual Studio Code | (.*)": "VS $1",
         "(.*) | com.mitchellh.ghostty": "> $1",
-        "(.*)@systematr(.*)": "> $2"
+        "(.*)@systematr(.*)": "> $2",
+
+        "(.*) — Mozilla Firefox": "$1",
+        "(.*) — Zen Browser": "$1",
+        "(.*) - Discord": "$1",
+        "(.*) - Visual Studio Code": "$1"
       }
     },
   
   
     
   
-    "backlight": {
+    "backlight": {//󰃞
       "device": "intel_backlight",
-      "format": "lum",
+      "format": "󰃞",
       "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
       "tooltip": true,
       "tooltip-format": "{percent}%"
@@ -122,9 +131,9 @@
     },
   
     
-    "pulseaudio": {
+    "pulseaudio": {//
       "format": "vol",
-      "format-muted": "",
+      "format-muted": "vøl",
       "tooltip": true,
       "tooltip-format": "{volume}%",
       "format-icons": {
@@ -151,11 +160,11 @@
   
     "network": {      
       "format": "avion{ifname}",
-      "format-wifi": "wifi {essid}",
+      "format-wifi": "{essid}",
       "format-ethernet": "{ipaddr}/{cidr} ",
       "format-disconnected": ":[",
       "tooltip": true,
-      "tooltip-format" : "{essid}",
+      "tooltip-format" : "^{bandwidthUpBytes} {signalStrength}% v{bandwidthDownBytes}",
       "on-click": "ghostty -e nmtui"
     },
   
@@ -172,6 +181,11 @@
       ]
     },
 
+    "custom/sleep": {
+      "format": "󰒲",
+      // "format": "󰒲",
+      "on-click": "loginctl lock-session & systemctl suspend"
+    },
 
     "custom/test": {
       "format": "test",
