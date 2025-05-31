@@ -223,6 +223,7 @@
     nxsh = "nix-shell";
     nxcf = "sudo nano /etc/nixos/configuration.nix";
     nxhw = "sudo nano /etc/nixos/harware-configuration.nix";
+    twitch = "streamlink --player mpv";
   };  
 
   

@@ -97,6 +97,8 @@
       "format": "{title}",
       "icon": false,
       "separate-outputs": false,
+      "tooltip":true,
+      "tooltip-format":"{class}",
       "rewrite": {
         " | ": "bonjour",
         "(.*) — Mozilla Firefox | (.*)": "$2 | $1",
