@@ -51,7 +51,7 @@ mouse-scroll-multiplier = 0.5
 
 
 keybind = ctrl+up=new_split:up
-keybind = ctrl+down=new_split:right
+keybind = ctrl+down=new_split:down
 keybind = ctrl+right=new_split:right
 keybind = ctrl+left=new_split:left
 # ctrl d quit the terminal and thus close the split

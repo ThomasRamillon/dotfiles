@@ -78,6 +78,7 @@
     unzip
     zip
     nix-index
+    poppler_utils
 
     ## TUI ##
     btop # task manager
@@ -109,9 +110,10 @@
     hyprlock
     mako
     waybar 
-    hyprpicker
-    hyprshot 
+    hyprpicker # color picker
+    hyprshot
     hypridle
+    hyprsunset # blue light
     hyprpolkitagent
     wofi
  
